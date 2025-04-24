@@ -45,11 +45,15 @@ document.addEventListener('DOMContentLoaded', () => {
           body: JSON.stringify({ email: email.value, password: password.value })
         });
 
-        const data = await res.json();
+        let data = {};
+        const contentType = res.headers.get('content-type');
+        if (contentType && contentType.includes('application/json')) {
+          data = await res.json();
+        }
 
         if (res.ok && data.token) {
           localStorage.setItem('token', data.token);
-          localStorage.setItem('username', data.user.name); // 👈 nuevo
+          localStorage.setItem('username', data.user.name);
           window.location.href = 'index.html';
         } else {
           loginMsg.textContent = data.msg || 'Error al iniciar sesión';
@@ -114,7 +118,11 @@ document.addEventListener('DOMContentLoaded', () => {
           })
         });
 
-        const data = await res.json();
+        let data = {};
+        const contentType = res.headers.get('content-type');
+        if (contentType && contentType.includes('application/json')) {
+          data = await res.json();
+        }
 
         if (res.ok && data.msg === 'Usuario registrado correctamente') {
           alert('Registro exitoso. Ahora puedes iniciar sesión.');
@@ -129,3 +137,4 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
+
