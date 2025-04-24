@@ -1,4 +1,4 @@
-const apiBase = 'https://hamnida-tech.onrender.com';
+const apiBase = 'https://hamnida-tech.onrender.com/api/users';
 
 document.addEventListener('DOMContentLoaded', () => {
   const loginForm = document.getElementById('login-form');
