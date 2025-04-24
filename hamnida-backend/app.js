@@ -1,4 +1,3 @@
-// app.js
 const express = require('express');
 const cors = require('cors');
 const connectDB = require('./config/db');
@@ -12,11 +11,14 @@ const app = express();
 // Conexión BD
 connectDB();
 
-// Middlewares
-app.use(cors());
+// Middleware de CORS SOLO para tu frontend
+app.use(cors({
+  origin: 'https://eduartiba.github.io'
+}));
+
 app.use(express.json());
 
-// Rutas (aquí se agregarán después)
+// Rutas
 app.get('/', (req, res) => {
   res.send('API Hamnida Technology funcionando');
 });
