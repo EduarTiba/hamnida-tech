@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!valid) return;
 
       try {
-        const res = await (`${apiBase}/login`, {
+        const res = await fetch(`${apiBase}/login`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ email: email.value, password: password.value })
