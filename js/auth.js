@@ -1,4 +1,4 @@
-const apiBase = 'http://localhost:5000/api/users';
+const apiBase = 'https://hamnida-tech.onrender.com';
 
 document.addEventListener('DOMContentLoaded', () => {
   const loginForm = document.getElementById('login-form');
@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!valid) return;
 
       try {
-        const res = await fetch(`${apiBase}/login`, {
+        const res = await (`${apiBase}/login`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ email: email.value, password: password.value })
