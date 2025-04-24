@@ -1,4 +1,4 @@
-const apiUrl = 'http://localhost:5000/api/services';
+const apiUrl = 'https://hamnida-tech.onrender.com';
 const serviceList = document.getElementById('service-list');
 const cartItems = document.getElementById('cart-items');
 const userStatus = document.getElementById('user-status');
@@ -100,7 +100,7 @@ function submitOrder() {
     return;
   }
 
-  fetch('http://localhost:5000/api/agendamientos', {
+  fetch('https://hamnida-tech.onrender.com', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
